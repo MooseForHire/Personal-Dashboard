@@ -1,0 +1,22 @@
+{% extends "dash/base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+   
+   <title> Guyaki Dashboard </title>
+   
+
+</head>
+<body>
+    {% for post in posts %}
+       <h1> {{ post.title }} </h1>
+       <p> By {{ post.author }} on {{ post.date_posted }} </p>
+       <p> {{ post.content }} </p>
+    {% endfor %}
+</body>
+</html>
+
+
+
+{% endblock content %}
