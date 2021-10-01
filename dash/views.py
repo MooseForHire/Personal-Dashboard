@@ -1,16 +1,17 @@
 from django.shortcuts import render
+from .models import Tile
 
 
 posts = [
     {
         'author' : 'Caleb',
-        'title' : 'First post',
+        'task' : 'First post',
         'content' : 'Content of my first post',
         'date_posted' : 'October 2021'
     },
     {
         'author' : 'Bob',
-        'title' : 'Second post',
+        'task' : 'Second post',
         'content' : 'Content of my second post',
         'date_posted' : 'October 1 2021'
     }
@@ -34,7 +35,7 @@ def about(request):
 def mydash(request):
 
     context = {
-    'posts': posts
+    'posts': Tile.objects.all() 
 }
     return render(request,'dash/mydash.html', context)
 

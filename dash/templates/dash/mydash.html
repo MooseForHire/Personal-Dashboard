@@ -10,11 +10,272 @@
 </head>
 <body>
     {% for post in posts %}
-       <h1> {{ post.title }} </h1>
-       <p> By {{ post.author }} on {{ post.date_posted }} </p>
-       <p> {{ post.content }} </p>
+
+    <form>
+      <h1> To Do </h1>
+      <div class="question">
+
+        <a class="text" placeholder="Task..." required> {{ post.task }} </a>
+        
+      </div>
+      
+      <div class="details">
+        <input type="details text" placeholder = "Details..." required/> {{ post.content }}
+        
+      </div>
+      <div class = "start">
+         <textarea class = "input" placeholder="Start typing..." name = "start" rows = "6" cols = "50"></textarea>
+            
+         </textarea>
+      </div>
+      <button class ="button button">Save</button>
+      <button class = "button button2">&#x2b</button>
+
+      
+      <div class="select">
+          <select name="slct" id="slct">
+              <option>Status</option>
+              <option value="1">To Do</option>
+              <option value="2">In Progress</option>
+              <option value="3">Complete</option>
+              <option value="4">Archive</option>
+          </select>
+      </div>
+
+      
+
+    </form>
+
+   
+
+
     {% endfor %}
 </body>
+
+
+<style>
+
+
+   select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      outline: 0;
+      background: aliceblue;
+      background-image: none;
+      border: none;
+   }
+
+   .select {
+      position: relative;
+      display: inline-block;
+      width: 155px;
+      height: 41px;
+      line-height: 3;
+      background:#556B2F;
+      overflow: hidden;
+      border-radius: .25em;
+      
+   }
+
+   select {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0 0 0 .5em;
+      color: #556B2F;
+      cursor: pointer;
+   }
+
+
+   select::-ms-expand {
+   display: none;
+   } 
+
+   .select::after {
+      content: '\25BC';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0 1em;
+      background: aliceblue;
+      pointer-events: none;
+   }
+
+   .select:hover::after {
+      color: #556B2F;
+   }
+
+
+   .transition, form button, form .question label, form .question input[type="text"] {
+      -moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+      -o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+      -webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+      transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+   }
+
+* {
+      font-family: Helvetica, sans-serif;
+      font-weight: light;
+      -webkit-font-smoothing: antialiased;
+}
+
+html {
+  background-color: aliceblue;
+}
+
+
+form {
+  position: relative;
+  display: inline-block;
+  max-width: 700px;
+  min-width: 400px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  background-color: aliceblue;
+  border-radius: 40px;
+  margin: 40px 0;
+  left: 40%;
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  
+}
+form h1 {
+  color: #556B2F ;
+  font-weight: 100;
+  font-size: 30px;
+  letter-spacing: 0.01em;
+  margin-top: -100px;
+  margin-left: 15px;
+  margin-bottom: 35px;
+  
+}
+form button {
+  margin-top: 35px;
+  background-color: aliceblue;
+  background-color: none;
+  border: none;
+  line-height: 0;
+  font-size: 17px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  border-radius: 60px;
+  color: #556B2F;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+form .button2 {
+  margin-top: 30px;
+  border: none;
+  line-height: 0;
+  font-size: 30px;
+  display: inline-block;
+  padding: 15px 8px;
+  border-radius: 60px;
+  color: #556B2F;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  left: 69%;
+  top: 10px;
+}
+
+
+form button:hover, form button:focus {
+  color: aliceblue;
+  background-color: #556B2F;
+}
+form .question {
+  position: relative;
+  padding: 10px 0;
+}
+form .question:first-of-type {
+  padding-top: 0;
+}
+form .question:last-of-type {
+  padding-bottom: 0;
+}
+
+form .question input[type="text"] {
+  appearance: none;
+  background-color: none;
+  border: none;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  line-height: 0;
+  font-size: 12px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 60px;
+  color: black;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+form .details input[type="details text"] {
+
+   appearance: none;
+  background-color: none;
+  border: none;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  line-height: 0;
+  font-size: 12px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 60px;
+  color: black;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+
+  
+}
+
+textarea {
+resize: none;
+border: none;
+margin-top: 20px;
+box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+border-radius: 8px;
+z-index: 1;
+outline: none;
+font-size: 12px;
+}
+
+
+
+form .details input[type = "details text"]:focus{
+   
+   outline: none;
+   background: white;
+   color: black;
+   
+}
+
+form .question input[type="text"]:focus {
+  outline: none;
+  background: white;
+  color: black;
+  margin-top: 30px;
+}
+
+
+
+</style>
 </html>
 
 
