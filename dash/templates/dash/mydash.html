@@ -9,24 +9,23 @@
 
 </head>
 <body>
-    {% for post in posts %}
+    {% for tile in tiles %}
 
     <form>
       <h1> To Do </h1>
       <div class="question">
-
-        <a class="text" placeholder="Task..." required> {{ post.task }} </a>
+         
+        <input type="text" placeholder="Task..." value = "{{ tile.task }}" required>
         
       </div>
       
       <div class="details">
-        <input type="details text" placeholder = "Details..." required/> {{ post.content }}
+        <input type="details text" placeholder = "Details..." value = "{{ tile.details }}" required> </input> 
         
       </div>
       <div class = "start">
-         <textarea class = "input" placeholder="Start typing..." name = "start" rows = "6" cols = "50"></textarea>
-            
-         </textarea>
+         <textarea class = "input" placeholder="Start typing..." name = "start" rows = "6" cols = "50"> {{ tile.content }}</textarea>
+         
       </div>
       <button class ="button button">Save</button>
       <button class = "button button2">&#x2b</button>
@@ -46,10 +45,7 @@
 
     </form>
 
-   
-
-
-    {% endfor %}
+   {% endfor %}
 </body>
 
 

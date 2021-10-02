@@ -3,16 +3,17 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-# The models will write the SQL for us. Djangos built-in ORM
-# Users, tiles, 
 
-#Setting up tile class for db storage
+#Setting up Tile model
 class Tile(models.Model):
+
+    #Title of the task
     task = models.CharField(max_length=100)
-    
+
+    #A small description of the task
     details = models.CharField(max_length=100)
 
-    #textfield = unrerestricted text
+    #Content -> main body of content for task textfield = unrerestricted text
     content = models.TextField()
     
     #Date -> grabs timezone

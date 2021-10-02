@@ -1,11 +1,15 @@
 {% extends "dash/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <!DOCTYPE html>
 
 <html>
 
+
 <style>
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 h1 {
     text-align: center;
@@ -20,129 +24,178 @@ p {
     color: aliceblue;
     padding-top: 50px;
     padding-bottom: 30px;
-    
-}
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-.btn { 
-  display: inline-block; 
-  *display: inline; 
-  *zoom: 1; 
-  padding: 4px 10px 4px; 
-  margin-bottom: 0; 
-  font-size: 13px; 
-  line-height: 18px; 
-  color: #333333; 
-  text-align: center;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); 
-  vertical-align: middle; 
-  background-color: #f5f5f5; 
-  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); 
-  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); 
-  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); 
-  background-image: linear-gradient(top, #ffffff, #e6e6e6); 
-  background-repeat: repeat-x; 
-  border-color: #e6e6e6 #e6e6e6 #e6e6e6; 
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); 
-  order: 1px solid #e6e6e6; 
-  -webkit-border-radius: 4px; 
-  border-radius: 4px; 
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
-  cursor: pointer; *margin-left: .3em; 
-}
-
-.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { 
-  background-color: #e6e6e6; 
-}
-
-.btn-large { 
-  padding: 9px 14px; 
-  font-size: 15px; 
-  line-height: normal; 
-  -webkit-border-radius: 5px; 
-  border-radius: 5px; 
-}
-
-
-.btn-primary, .btn-primary:hover { 
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); 
-  color: #ffffff; 
-}
-.btn-primary.active { 
-  color: rgba(255, 255, 255, 0.75); 
-}
-.btn-primary { 
-  background-color: #4a77d4; 
-  background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); 
-  background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); 
-  background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); 
-  background-image: linear-gradient(top, #6eb6de, #4a77d4); 
-  background-repeat: repeat-x; 
-  border: 1px solid #3762bc; 
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.4); 
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); 
-}
-
-.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { 
-  filter: none; 
-  background-color: #4a77d4; 
-}
-
-.btn-block { 
-  width: 100%; 
-  display:block; 
+    font-size: 25px;
 }
 
 * { 
   box-sizing:border-box; 
 }
 
-html { 
-  width: 100%; 
-  height:100%; 
-  overflow:hidden; }
+/* BASIC */
 
-.login { 
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  margin: -150px 0 0 -150px;
-  width:300px;
-  height:300px;
+html {
+  background-color: #000000;
 }
-.login h3 { 
-  color: #fff; 
-  text-shadow: 0 0 10px rgb(160, 159, 159); 
-  letter-spacing:1px; 
-  margin-left: 100px; 
-  font-size: 25px;
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+a {
+  color: lightslategrey;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+
+/* STRUCTURE */
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 15px;
   
 }
 
-input { 
-  width: 100%; 
-  margin-bottom: 10px; 
-  background: rgba(0,0,0,0.3);
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 13px;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-  border: 1px solid rgba(0,0,0,0.3);
-  border-radius: 4px;
-  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+/* Login Text Box Fill*/
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(255, 255, 255);
+  padding: 70px;
+  width: 90%;
+  max-width: 420px;
+  position: relative;
+  padding: 30px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+  opacity: 75%;
+  
   
 }
-input:focus { 
-  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
 }
 
 
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+
+.asteriskField {
+    display: none;
+}
 
 </style>
-
 
 <body>
  
@@ -150,14 +203,16 @@ input:focus {
   <h1>Welcome to Guyaki!</h1>
   <p>Your personal dashboard for focus and productivity</p>
   <div class="login">
-    <h3>Login</h3>
-      <form method="post">
-        <input type="text" name="u" placeholder="Username" required="required" />
-          <input type="password" name="p" placeholder="Password" required="required" />
-          <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
-      </form>
+    <form method = "POST">
+        {% csrf_token %}
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+              <a class="nav -item nav-link" href="{% url 'login'%} ">Log In</a></button>
+              <a class="nav-item nav-link" href="{% url 'register' %}" >New User? Click here to Register</button>
+            </div>
+          </div>
+    </form>   
   </div>
-
 </body>
 
 </html>

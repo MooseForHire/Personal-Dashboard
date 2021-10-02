@@ -1,7 +1,6 @@
 <!-- Base template for all web pages. Django inheritance Reduces amount of code! -->
-
+{% load static %}
 <!DOCTYPE html>
-
 <html lang="en">
 <style>
 
@@ -22,12 +21,13 @@ h2 {
   margin: 40px 8px 10px 8px; 
   color: #cccccc;
 }
+
 body {
-    background-image: url("https://images.unsplash.com/photo-1533035336122-4327d347d2fe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80");
-    background-position: 50% 50%;
+    background-image: url("https://external-preview.redd.it/SMw2TwbNvUpaM8Jx-boqn6BnthQaG78kZ7LDt-Dwrzc.png?auto=webp&s=c3e9cba821da4c8cd83d4bfb8fd5f9399de77305");
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
     background-attachment: fixed;
+    
     height: auto;
     font-family: "Poppins", sans-serif;
     height: 100vh;
@@ -36,7 +36,7 @@ body {
 
 p{
     text-align: center;
-    color:aliceblue;
+    color:black;
     font-size: 25px;
 }
 </style>
@@ -57,48 +57,81 @@ p{
 
 <body>
     <!-- Free Bootstrap Nav bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <!--change # to set the url-->
         <a class="navbar-brand" href="{% url 'dash-home' %}">Guyaki</a>
+    
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'dash-home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'guyaki-about'%}">About</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dashboard Templates
-              </a>
+            
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'dash-home' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'guyaki-about'%}">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard Templates</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Default</a>
                 <a class="dropdown-item" href="#">Modern</a>
                 <a class="dropdown-item" href="#">Zen</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Premium</a>
-              </div>
+              </div>    
+              
+              <!-- Display My dashboard and logout link if user is logged in.-->
+              {% if user.is_authenticated %} 
+            <li class = "nav-item">
+              <a class="nav-link" href="{% url 'guyaki-mydash'%}">My Dashboard</a>
             </li>
-            
+            <li class = "nav-item">
+              <a class= "nav-link" href="{% url 'logout'%}">Logout</a>
+          </li>
+          <li>
+            <a class="navbar navbar-brand p-1 navbar-right d-none" href="https://getbootstrap.com/"> <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="42" height= "37" alt=""></a>
+            <a class="navbar navbar-brand p-1 navbar-right d-none" href="https://github.com/MooseForHire"> <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" width="42" height="37" alt=""></a>
+            <a class="navbar navbar-brand p-1 navbar-right d-none" href="https://www.mysql.com/"> <img src="https://www.mysql.com/common/logos/powered-by-mysql-167x86.png" width="60" height="37" alt=""></a>
+            <a class="navbar navbar-brand p-1 navbar-right d-none" href="https://www.python.org/"> <img src="https://www.python.org/static/community_logos/python-powered-h-50x65.png" width="40" height="37" alt=""></a>
+            <a class="navbar navbar-brand p-1 navbar-right d-none" href="https://www.djangoproject.com/"> <img src="https://static.djangoproject.com/img/logos/django-logo-negative.png" width="60" height="37" alt=""></a>
+            <a class="navbar navbar-brand p-1 navbar-right d-none" href="https://aws.amazon.com/"> <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB_stacked_REV_SQ.91cd4af40773cbfbd15577a3c2b8a346fe3e8fa2.png" width="60" height="40" alt=""></a>
+          </li>
+            {% else %}
+          <li>
+            <div class= "navbar navbar-right">
+            <a class="navbar navbar-brand p-1 " href="https://getbootstrap.com/"> <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="42" height= "37" alt=""></a>
+            <a class="navbar navbar-brand p-1 " href="https://github.com/MooseForHire"> <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" width="42" height="37" alt=""></a>
+            <a class="navbar navbar-brand p-1  " href="https://www.mysql.com/"> <img src="https://www.mysql.com/common/logos/powered-by-mysql-167x86.png" width="60" height="37" alt=""></a>
+            <a class="navbar navbar-brand p-1 " href="https://www.python.org/"> <img src="https://www.python.org/static/community_logos/python-powered-h-50x65.png" width="40" height="37" alt=""></a>
+            <a class="navbar navbar-brand p-1 " href="https://www.djangoproject.com/"> <img src="https://static.djangoproject.com/img/logos/django-logo-negative.png" width="60" height="37" alt=""></a>
+            <a class="navbar navbar-brand p-1" href="https://aws.amazon.com/"> <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB_stacked_REV_SQ.91cd4af40773cbfbd15577a3c2b8a346fe3e8fa2.png" width="60" height="40" alt=""></a>
+            </div>
+          </li>
+            {% endif %}  
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
+          
+
+
+        
       </nav>
 
-    <div class = "container1">
+    <div class = "container1" >
+      {% if messages %}
+        {% for message in messages %}
+          <div class='alert alert-{{ message.tags }}'>
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
         <!--This is the block other pages can override. -->
         {% block content%} {% endblock %}
     </div>
 
-    <!-- Optional JavaScript -->
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
