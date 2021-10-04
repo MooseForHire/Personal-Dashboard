@@ -1,22 +1,39 @@
 {% extends "dash/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="container">
     <div class="content-section bg-light justify-content-center">
         <form method="POST">
             {% csrf_token %}
+
             <fieldset class = "form-group justify-content-center">
-            <legend class = "border-bottom mb-4"> Create Account</legend>
-                {{ form | crispy }}
-            </fieldset>       
+                <legend class = "border-bottom mb-4">Create Account</legend>
+                    
+                        {{ form | crispy }}
+                    
+            </fieldset>    
+
             <div class = "form-group">
-                <button class = "btn btn-secondary" type = 'submit'> Sign Up</button>
+                <button class = "btn btn-primary" type = 'submit'>Sign Up</button>
             </div>
+
         </form>
+
         <div class = "border-top pt-3">
             <small class = "text-muted">
                 Already Have an Account? <a class = "ml-2" href="{% url 'login' %}"> Sign In</a>
             </small>
         </div>
+
     </div>
+</div>
+
+<style>
+    div {
+        text-align: center;
+        border-radius: 25px;
+
+    }
+</style>
 {% endblock content %}
 

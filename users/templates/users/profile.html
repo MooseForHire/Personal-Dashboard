@@ -1,0 +1,53 @@
+{% extends "dash/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container pt-5">
+  <div class="form-group bg-light pt-3">
+
+    <div class="row justify-content-center">
+      <div class="media">
+        <img src="{{ user.profile.image.url }}" class="img-thumbnail">
+            <div class="media-body pt-5">
+              <h2 class="account-heading text-secondary">{{ user.username }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <div class="row justify-content-center pb-3"> 
+          {{ u_form|crispy }}
+          {{ p_form|crispy }}
+        </div>
+
+        <div class = "row justify-content-center">
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Update</button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  div {
+    align-content: center;
+    border-radius: 20px;
+    padding: 0px;
+    
+  }
+  p{
+    text-align: center;
+    color:black;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+  }
+
+</style>
+{% endblock content %}
