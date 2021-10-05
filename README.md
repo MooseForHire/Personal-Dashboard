@@ -1,6 +1,6 @@
 # Personal-Dashboard
 
-This is a basic Django project made by me - Caleb Steen. [https://github.com/MooseForHire]
+<h1> This is a basic Django project made by me - Caleb Steen. [https://github.com/MooseForHire] </h1>
 
 Live version available here:
 <Coming Soon>
