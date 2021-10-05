@@ -134,6 +134,7 @@ STATICFILES_DIRS = (
 )
 
 
+
 #Location images will be uploaded to, default is filesystem. Media root = projects base directory/media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
