@@ -14,7 +14,7 @@
 <h2>What does it show?
   </h2>
   
-<p> This project demonstrates my ability to use the Django Framework, HTML, CSS, and JS.
+<p> This project demonstrates my ability to use the Django Framework, Python, HTML, CSS, and JS
   </p>
   
 <h2>Will you accept pull requests?
