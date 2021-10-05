@@ -1,6 +1,6 @@
 # Personal-Dashboard
 
-This is a basic React project made by Caleb Steen. [https://github.com/MooseForHire]
+This is a basic Django project made by me - Caleb Steen. [https://github.com/MooseForHire]
 
 Live version available here:
 <Coming Soon>
