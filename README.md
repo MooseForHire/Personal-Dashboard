@@ -2,9 +2,9 @@
 
 <h2> This is a basic Django project made by me - Caleb Steen. [https://github.com/MooseForHire] </h2>
 
-<h2> Live version available here: 
-  <p> <Coming Soon> </p>
-  </h2>
+<h2> Live version available here: </h2>
+  <p> Coming Soon! </p>
+  
   
 <h2> What is it?
   </h2>
