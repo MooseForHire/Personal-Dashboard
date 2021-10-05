@@ -11,5 +11,7 @@ urlpatterns = [
     path('mydash/',views.mydash, name = 'guyaki-mydash'),
     path('register/',views.register, name = 'guyaki-register'),
     path('profile/',user_views.profile, name = 'profile')
-   
+    
+    
 ]
+
