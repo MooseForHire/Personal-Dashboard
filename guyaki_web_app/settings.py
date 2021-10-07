@@ -11,8 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 import os.path
+import environ
+
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-omw)4wtsdipe#mfr097$1m2t!-kueg#^2&91w)$e+=h_6$w2)6'
+#SECRET_KEY = 'django-insecure-omw)4wtsdipe#mfr097$1m2t!-kueg#^2&91w)$e+=h_6$w2)6'
+SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# SECURITY WARNING: don't run with debug turned on in production!!
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -34,7 +40,10 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
 
+    
+    
     #My apps
+    'guyaki_web_app',
     'dash.apps.DashConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
@@ -61,6 +70,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'guyaki_web_app.urls'
 
+#This is where Django looks for the templates.
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -86,9 +96,9 @@ WSGI_APPLICATION = 'guyaki_web_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DEMO_TEST',
-        'USER': 'postgres',
-        'PASSWORD': 'ANSQQ89ec209!@',
+        'NAME': env('DEMO_TEST'),
+        'USER': env('postgres'),
+        'PASSWORD': env('password'),
         'HOST': 'localhost',
         'PORT': '5432'
     }
