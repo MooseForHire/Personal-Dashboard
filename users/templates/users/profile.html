@@ -1,3 +1,4 @@
+<!-- https://django-crispy-forms.readthedocs.io/en/latest/layouts.html -->
 {% extends "dash/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -20,8 +21,8 @@
         {% csrf_token %}
 
         <div class="row justify-content-center pb-3"> 
-          {{ u_form|crispy }}
-          {{ p_form|crispy }}
+          {{ u_form | crispy }}
+          {{ p_form | crispy }}
         </div>
 
         <div class = "row justify-content-center">
@@ -34,15 +35,9 @@
 </div>
 
 <style>
-  div {
-    align-content: center;
-    border-radius: 20px;
-    padding: 0px;
-    
-  }
-  p{
-    text-align: center;
-    color:black;
+  
+  .container{
+    width: 800px;
   }
   img{
     width: 100px;

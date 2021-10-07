@@ -6,11 +6,13 @@ from .models import Tile, Category
 #function based view = urls.py -> views.py -> templates
 #class based view = list, detail, create, update, delete
 
-
+#request-http
 def home(request):
     context = {
         'tiles' : Tile.objects.all()
     }
+
+    #request, template name, template    
     return render(request, 'dash/home.html', context)
 
 
