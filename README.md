@@ -3,7 +3,7 @@
 <p> This is a basic Django project made by me - Caleb Steen. [https://github.com/MooseForHire] </p>
 
 <h2> Live version available here: </h2>
-  <p> Coming Soon! </p>
+  <p> http://ec2-54-158-163-103.compute-1.amazonaws.com/dash/</p>
   
   
 <h2> What is it?
