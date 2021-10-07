@@ -4,13 +4,21 @@ const addBtn = document.querySelector(".inputField button");
 const todoList = document.querySelector(".todoList");
 const deleteAllBtn = document.querySelector(".footer button");
 
-// onkeyup event
+// onkey event
 inputBox.onkeyup = ()=>{
-  let userEnteredValue = inputBox.value; //getting user entered value
-  if(userEnteredValue.trim() != 0){ //if the user value isn't only spaces
-    addBtn.classList.add("active"); //active the add button
+
+  // getting user entered value
+  let userEnteredValue = inputBox.value; 
+
+  //if the user value isn't only spaces
+  if(userEnteredValue.trim() != 0){
+
+    //active the add button
+    addBtn.classList.add("active");
+    
+  //unactive the add button
   }else{
-    addBtn.classList.remove("active"); //unactive the add button
+    addBtn.classList.remove("active"); 
   }
 }
 //calling showTask function
@@ -19,19 +27,33 @@ showTasks();
 addBtn.onclick = ()=>{ 
   
   //when user click on plus icon button
-  let userEnteredValue = inputBox.value; //getting input field value
-  let getLocalStorageData = localStorage.getItem("New Todo"); //getting localstorage
+  let userEnteredValue = inputBox.value; 
+
+
+  //getting localstorage
+  let getLocalStorageData = localStorage.getItem("New Todo");
   
-  if(getLocalStorageData == null){ //if localstorage has no data
-    listArray = []; //create a blank array
+  //if localstorage has no data
+  if(getLocalStorageData == null){ 
+
+    //create a blank array
+    listArray = [];
+
+  //transforming json string into a js object  
   }else{
-    listArray = JSON.parse(getLocalStorageData);  //transforming json string into a js object
+    listArray = JSON.parse(getLocalStorageData);
   }
+  //pushing or adding new value in array
+  listArray.push(userEnteredValue); 
+
+  //transforming js object into a json string
+  localStorage.setItem("New Todo", JSON.stringify(listArray)); 
   
-  listArray.push(userEnteredValue); //pushing or adding new value in array
-  localStorage.setItem("New Todo", JSON.stringify(listArray)); //transforming js object into a json string
-  showTasks(); //calling showTask function
-  addBtn.classList.remove("active"); //unactive the add button once the task added
+  //calling showTask function
+  showTasks();
+
+  //unactive the add button once the task added
+  addBtn.classList.remove("active"); 
 }
 
 function showTasks(){
