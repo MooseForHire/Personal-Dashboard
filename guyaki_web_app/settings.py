@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-omw)4wtsdipe#mfr097$1m2t!-kueg#^2&91w)$e+=h_6$w2)6'
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-omw)4wtsdipe#mfr097$1m2t!-kueg#^2&91w)$e+=h_6$w2)6'
+#SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!!
 DEBUG = False
@@ -96,9 +96,9 @@ WSGI_APPLICATION = 'guyaki_web_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DEMO_TEST'),
-        'USER': env('postgres'),
-        'PASSWORD': env('password'),
+        'NAME': 'DEMO_TEST',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432'
     }
