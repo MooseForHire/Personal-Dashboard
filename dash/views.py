@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from .models import Tile
-from django.views.generic import ListView
+from django.shortcuts import render,redirect
+from .models import Tile, Category
+
 
 
 #function based view = urls.py -> views.py -> templates
@@ -20,16 +20,11 @@ def about(request):
 def mydash(request):
     return render(request,'dash/mydash.html')
 
-#class based view
-class TileListView(ListView):
-    model = Tile
-    template_name = 'dash/mydash.html'
-    context_object_name = 'tiles'
-    ordering = ['-date_posted']
 
+def createTile(request):
+    return render(request, 'dash/tile_form.html')
 
 def register(request):
-    return render(request,'dash/register.html', {'title' : 'Registration'} )
-
+    return render(request,'users/register.html', {'title' : 'Registration'} )
 
 
