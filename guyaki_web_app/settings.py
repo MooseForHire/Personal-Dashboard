@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-omw)4wtsdipe#mfr097$1m2t!-kueg#^2&91w)$e+=h_6$w2)6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -61,6 +61,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'guyaki_web_app.urls'
 
+#This is where Django looks for the templates.
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
