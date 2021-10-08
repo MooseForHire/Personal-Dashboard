@@ -92,10 +92,10 @@ WSGI_APPLICATION = 'guyaki_web_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DEMO_TEST',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': 'more-database-2.cwkklqsjbwci.us-east-1.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
