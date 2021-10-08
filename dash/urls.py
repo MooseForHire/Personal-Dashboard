@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from users import views as user_views
-from .views import saveToDb
+
 
 urlpatterns = [
 
@@ -11,6 +11,6 @@ urlpatterns = [
     path('dash/mydash/',views.mydash, name = 'guyaki-mydash'),
     path('profile/',user_views.profile, name = 'profile'),
     path('createTile/',views.createTile, name = 'create-tile'),
-    path('savetodb/<name>',saveToDb),
+   
 ]    
 

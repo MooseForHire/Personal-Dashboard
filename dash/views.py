@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render,redirect
-from .models import Tile, Name
+from django.shortcuts import render
+from .models import Tile
 
 
 
@@ -30,10 +30,4 @@ def createTile(request):
 def register(request):
     return render(request,'users/register.html', {'title' : 'Registration'} )
 
-
-def saveToDb(request, name):
-    Name.objects.create(name = name)
-
-    count = Name.objects.count()
-    return HttpResponse("<h2> Success </h2>")
 
